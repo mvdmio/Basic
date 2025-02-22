@@ -10,4 +10,24 @@ public static class DirectoryInfoExtensions
       if (directory.Exists is false)
          directory.Create();
    }
+   
+   public static DirectoryInfo Combine(this DirectoryInfo directory, params string[] paths)
+   {
+      var combiner = new List<string>();
+      combiner.Add(directory.FullName);
+      combiner.AddRange(paths);
+
+      var combined = Path.Combine(combiner.ToArray());
+      return new DirectoryInfo(combined);
+   }
+   
+   public static DirectoryInfo Combine(this DirectoryInfo directory, params DirectoryInfo[] paths)
+   {
+      var combiner = new List<string>();
+      combiner.Add(directory.FullName);
+      combiner.AddRange(paths.Select(x => x.FullName));
+
+      var combined = Path.Combine(combiner.ToArray());
+      return new DirectoryInfo(combined);
+   }
 }
