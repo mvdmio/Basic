@@ -1,13 +1,13 @@
 ﻿namespace mvdmio.Basic.Utils;
 
 /// <summary>
-/// URL utilities
+///    URL utilities
 /// </summary>
 public class UrlUtil
 {
    /// <summary>
-   /// Check if the URL is local.
-   /// A URL is considered local if it starts with a slash (/) or a dot-slash (./).
+   ///    Check if the URL is local.
+   ///    A URL is considered local if it starts with a slash (/) or a dot-slash (./).
    /// </summary>
    public static bool IsLocal(string url)
    {
@@ -15,9 +15,9 @@ public class UrlUtil
    }
 
    /// <summary>
-   /// Normalize the URL.
-   /// Normalized URLS start with 'http://', 'https://', '/', or './'.
-   /// Normalized URLS always end without a trailing slash.
+   ///    Normalize the URL.
+   ///    Normalized URLS start with 'http://', 'https://', '/', or './'.
+   ///    Normalized URLS always end without a trailing slash.
    /// </summary>
    public static string Normalize(string? url)
    {
@@ -27,8 +27,10 @@ public class UrlUtil
       if (!IsLocal(url) && !url.StartsWith("http://") && !url.StartsWith("https://"))
          url = $"https://{url}";
 
-      while(url.EndsWith("/"))
+      while (url.EndsWith("/"))
+      {
          url = url.Substring(0, url.Length - 1);
+      }
 
       return url;
    }

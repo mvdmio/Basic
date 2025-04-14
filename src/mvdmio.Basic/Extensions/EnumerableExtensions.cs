@@ -22,10 +22,10 @@ public static class EnumerableExtensions
    }
 
    /// <summary>
-   ///   Creates a new enumerable that contains the elements of the original enumerable and adds the index for each element.
+   ///    Creates a new enumerable that contains the elements of the original enumerable and adds the index for each element.
    /// </summary>
    /// <example>
-   ///   foreach(var (item, index) in enumerable.WithIndex()) { }
+   ///    foreach(var (item, index) in enumerable.WithIndex()) { }
    /// </example>
    public static IEnumerable<(T item, int index)> WithIndex<T>(this IEnumerable<T> enumerable)
    {
@@ -33,7 +33,7 @@ public static class EnumerableExtensions
    }
 
    /// <summary>
-   ///   Converts an enumerable to a JSON string.
+   ///    Converts an enumerable to a JSON string.
    /// </summary>
    public static string ToJson<T>(this IEnumerable<T> enumerable)
    {

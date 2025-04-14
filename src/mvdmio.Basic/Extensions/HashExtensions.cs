@@ -20,7 +20,7 @@ public static class HashExtensions
 
       var bytes = Encoding.UTF8.GetBytes(input);
       var hash = SHA256.HashData(bytes);
-      
+
       return Convert.ToBase64String(hash);
    }
 

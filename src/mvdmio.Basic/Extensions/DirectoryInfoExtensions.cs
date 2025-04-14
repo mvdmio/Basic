@@ -6,11 +6,11 @@ public static class DirectoryInfoExtensions
    {
       if (directory.Parent is not null)
          directory.Parent.RecursiveCreate();
-      
+
       if (directory.Exists is false)
          directory.Create();
    }
-   
+
    public static DirectoryInfo Combine(this DirectoryInfo directory, params string[] paths)
    {
       var combiner = new List<string>();
@@ -20,7 +20,7 @@ public static class DirectoryInfoExtensions
       var combined = Path.Combine(combiner.ToArray());
       return new DirectoryInfo(combined);
    }
-   
+
    public static DirectoryInfo Combine(this DirectoryInfo directory, params DirectoryInfo[] paths)
    {
       var combiner = new List<string>();
