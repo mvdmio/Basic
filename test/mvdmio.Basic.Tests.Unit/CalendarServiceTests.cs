@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using AwesomeAssertions;
 using mvdmio.Basic.Time;
 using mvdmio.UnitTest.Common.xUnit;
 
