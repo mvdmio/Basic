@@ -11,6 +11,30 @@ public static class DirectoryInfoExtensions
          directory.Create();
    }
 
+   public static void ForceDelete(this DirectoryInfo directory)
+   {
+      if (!directory.Exists)
+         return; // Nothing to delete
+
+      // Clear read-only on the top-level directory
+      directory.Attributes = FileAttributes.Normal;
+
+      // Recursively clear read-only on all subdirectories
+      foreach (var subDir in directory.GetDirectories("*", SearchOption.AllDirectories))
+      {
+         subDir.Attributes = FileAttributes.Normal;
+      }
+
+      // Recursively clear read-only on all files
+      foreach (var file in directory.GetFiles("*", SearchOption.AllDirectories))
+      {
+         file.Attributes = FileAttributes.Normal;
+      }
+
+      // Now delete recursively
+      directory.Delete(true);
+   }
+   
    public static DirectoryInfo Combine(this DirectoryInfo directory, params string[] paths)
    {
       var combiner = new List<string>();
