@@ -16,6 +16,9 @@ public static class DirectoryInfoExtensions
       if (!directory.Exists)
          return; // Nothing to delete
 
+      // Ensure the directory is refreshed to get the latest attributes
+      directory.Refresh();
+      
       // Clear read-only on the top-level directory
       directory.Attributes = FileAttributes.Normal;
 
