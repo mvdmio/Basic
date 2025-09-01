@@ -6,4 +6,7 @@ public interface IClock
    DateTime UtcNow { get; }
    
    DateOnly Today { get; }
+
+   Task Delay(TimeSpan delay, CancellationToken ct = default);
+   Task Delay(int millisecondsDelay, CancellationToken ct = default);
 }
