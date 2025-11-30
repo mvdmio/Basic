@@ -2,12 +2,18 @@
 
 public static class DateTimeOffsetExtensions
 {
-   /// <summary>
-   ///   Floor the DateTime to the nearest interval. Interval defaults to 1 millisecond if not specified.
-   /// </summary>
-   public static DateTimeOffset Floor(this DateTimeOffset dateTimeOffset, TimeSpan? interval = null)
+   extension(DateTimeOffset dateTimeOffset)
    {
-      interval ??= TimeSpan.FromMilliseconds(1);
-      return new DateTimeOffset(dateTimeOffset.Ticks - dateTimeOffset.Ticks % interval.Value.Ticks, dateTimeOffset.Offset);
+      DateTimeOffset StartOfDay => new DateTimeOffset( dateTimeOffset.Year, dateTimeOffset.Month, dateTimeOffset.Day, 0, 0, 0, dateTimeOffset.Offset);
+      DateTimeOffset EndOfDay => new DateTimeOffset( dateTimeOffset.Year, dateTimeOffset.Month, dateTimeOffset.Day, 23, 59, 59, dateTimeOffset.Offset);
+      
+      /// <summary>
+      ///   Floor the DateTime to the nearest interval. Interval defaults to 1 millisecond if not specified.
+      /// </summary>
+      public DateTimeOffset Floor(TimeSpan? interval = null)
+      {
+         interval ??= TimeSpan.FromMilliseconds(1);
+         return new DateTimeOffset(dateTimeOffset.Ticks - dateTimeOffset.Ticks % interval.Value.Ticks, dateTimeOffset.Offset);
+      }
    }
 }
