@@ -4,8 +4,43 @@ public static class DateTimeExtensions
 {
    extension(DateTime dateTime)
    {
-      public DateTime StartOfDay => new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 0, 0, 0);
-      public DateTime EndOfDay => new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 23, 59, 59);
+      public DateTime StartOfDay => new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 0, 0, 0, dateTime.Kind);
+      public DateTime EndOfDay => new DateTime(dateTime.Year, dateTime.Month, dateTime.Day + 1, 0, 0, 0, dateTime.Kind).Subtract(TimeSpan.FromTicks(1));
+      
+      public DateTime StartOfWeek
+      {
+         get
+         {
+            var diff = (7 + (dateTime.DayOfWeek - DayOfWeek.Monday)) % 7;
+            var startOfWeek = dateTime.AddDays(-1 * diff);
+            return new DateTime(startOfWeek.Year, startOfWeek.Month, startOfWeek.Day, 0, 0, 0, dateTime.Kind);   
+         }
+      }
+      
+      public DateTime EndOfWeek
+      {
+         get
+         {
+            var startOfWeek = dateTime.StartOfWeek;
+            var endOfWeek = startOfWeek.AddDays(7);
+            return new DateTime(endOfWeek.Year, endOfWeek.Month, endOfWeek.Day, 0, 0, 0, dateTime.Kind).Subtract(TimeSpan.FromTicks(1));   
+         }
+      }
+      
+      public DateTime StartOfMonth => new DateTime(dateTime.Year, dateTime.Month, 1, 0, 0, 0, dateTime.Kind);
+      
+      public DateTime EndOfMonth
+      {
+         get
+         {
+            var daysInMonth = DateTime.DaysInMonth(dateTime.Year, dateTime.Month);
+            return new DateTime(dateTime.Year, dateTime.Month, daysInMonth, 0, 0, 0, dateTime.Kind).Subtract(TimeSpan.FromTicks(1));
+         }
+      }
+      
+      public DateTime StartOfYear => new DateTime(dateTime.Year, 1, 1, 0, 0, 0, dateTime.Kind);
+      public DateTime EndOfYear => new DateTime(dateTime.Year + 1, 1, 1, 0, 0, 0, dateTime.Kind).Subtract(TimeSpan.FromTicks(1));
+      
       
       /// <summary>
       ///   Floor the DateTime to the nearest interval. Interval defaults to 1 millisecond if not specified.
