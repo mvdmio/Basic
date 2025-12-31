@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+using System.Globalization;
 
 namespace mvdmio.Basic.Extensions;
 
@@ -54,8 +54,9 @@ public static class DateTimeExtensions
       {
          get
          {
-            var daysInMonth = DateTime.DaysInMonth(dateTime.Year, dateTime.Month);
-            return new DateTime(dateTime.Year, dateTime.Month, daysInMonth, 0, 0, 0, dateTime.Kind).Subtract(TimeSpan.FromTicks(1));
+            var year = dateTime.Month == 12 ? dateTime.Year + 1 : dateTime.Year;
+            var month = dateTime.Month == 12 ? 1 : dateTime.Month + 1;
+            return new DateTime(year, month, 1, 0, 0, 0, dateTime.Kind).Subtract(TimeSpan.FromTicks(1));
          }
       }
       
