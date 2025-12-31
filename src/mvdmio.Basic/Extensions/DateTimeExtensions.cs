@@ -4,6 +4,8 @@ namespace mvdmio.Basic.Extensions;
 
 public static class DateTimeExtensions
 {
+   private static TimeSpan EndOfDay = TimeSpan.FromDays(1).Subtract(TimeSpan.FromTicks(1));
+   
    extension(DateTime dateTime)
    {
       /// <summary>
@@ -14,7 +16,7 @@ public static class DateTimeExtensions
       /// <summary>
       ///   Gets the end of the day for the given DateTime.
       /// </summary>
-      public DateTime EndOfDay => new DateTime(dateTime.Year, dateTime.Month, dateTime.Day + 1, 0, 0, 0, dateTime.Kind).Subtract(TimeSpan.FromTicks(1));
+      public DateTime EndOfDay => dateTime.StartOfDay.Add(EndOfDay);
       
       /// <summary>
       ///   Gets the start of the week (Monday) for the given DateTime.
@@ -25,7 +27,7 @@ public static class DateTimeExtensions
          {
             var diff = (7 + (dateTime.DayOfWeek - DayOfWeek.Monday)) % 7;
             var startOfWeek = dateTime.AddDays(-1 * diff);
-            return new DateTime(startOfWeek.Year, startOfWeek.Month, startOfWeek.Day, 0, 0, 0, dateTime.Kind);   
+            return startOfWeek.StartOfDay;   
          }
       }
       
@@ -38,7 +40,7 @@ public static class DateTimeExtensions
          {
             var startOfWeek = dateTime.StartOfWeek;
             var endOfWeek = startOfWeek.AddDays(7);
-            return new DateTime(endOfWeek.Year, endOfWeek.Month, endOfWeek.Day, 0, 0, 0, dateTime.Kind).Subtract(TimeSpan.FromTicks(1));   
+            return endOfWeek.EndOfDay;   
          }
       }
       
