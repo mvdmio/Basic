@@ -39,8 +39,7 @@ public static class DateTimeExtensions
          get
          {
             var startOfWeek = dateTime.StartOfWeek;
-            var endOfWeek = startOfWeek.AddDays(7);
-            return endOfWeek.EndOfDay;   
+            return startOfWeek.AddDays(7).Subtract(TimeSpan.FromTicks(1));
          }
       }
       
