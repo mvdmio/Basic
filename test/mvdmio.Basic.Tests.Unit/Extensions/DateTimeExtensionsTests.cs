@@ -1,5 +1,6 @@
 using AwesomeAssertions;
 using mvdmio.Basic.Extensions;
+using Xunit;
 
 namespace mvdmio.Basic.Tests.Unit.Extensions;
 
