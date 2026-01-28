@@ -55,5 +55,40 @@ public static class UriExtensions
             return builder.Uri.AbsoluteUri;
          }
       }
+      
+      /// <summary>
+      ///   Returns a normalized absolute URI suitable for comparison and deduplication.
+      ///   - Removes fragments
+      ///   - Keeps query parameters
+      ///   - Normalizes scheme and host to lowercase
+      ///   - Removes default ports (80 for HTTP, 443 for HTTPS)
+      ///   - Removes trailing slash from path (except for root path)
+      /// </summary>
+      public string NormalizedAbsoluteUri
+      {
+         get
+         {
+            var builder = new UriBuilder(uri) {
+               Scheme = uri.Scheme.ToLowerInvariant(),
+               Host = uri.Host.ToLowerInvariant(),
+               Fragment = string.Empty
+            };
+            
+            // Remove default ports
+            if ((builder.Scheme == "http" && builder.Port == 80) ||
+                (builder.Scheme == "https" && builder.Port == 443))
+            {
+               builder.Port = -1;
+            }
+            
+            // Remove trailing slash from path (but keep root path as "/")
+            if (builder.Path.Length > 1 && builder.Path.EndsWith('/'))
+            {
+               builder.Path = builder.Path.TrimEnd('/');
+            }
+            
+            return builder.Uri.AbsoluteUri;
+         }
+      }
    }
 }
