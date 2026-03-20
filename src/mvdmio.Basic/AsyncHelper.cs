@@ -6,7 +6,7 @@ namespace mvdmio.Basic;
 ///    Provides helper methods for dealing with async methods in sync contexts.
 /// </summary>
 [PublicAPI]
-public class AsyncHelper
+public static class AsyncHelper
 {
    private static readonly TaskFactory _taskFactory = new TaskFactory(CancellationToken.None, TaskCreationOptions.None, TaskContinuationOptions.None, TaskScheduler.Default);
 
@@ -18,15 +18,7 @@ public class AsyncHelper
    /// <returns>The result of the async func</returns>
    public static TResult RunSync<TResult>(Func<Task<TResult>> func)
    {
-      try
-      {
-         return _taskFactory.StartNew(func).Unwrap().GetAwaiter().GetResult();
-      }
-      catch (Exception ex) when (ex is ThreadAbortException or TaskCanceledException)
-      {
-         // Ignore. Happens when application is shutdown while process is running.
-         return default!;
-      }
+      return _taskFactory.StartNew(func).Unwrap().GetAwaiter().GetResult();
    }
 
    /// <summary>
@@ -35,13 +27,6 @@ public class AsyncHelper
    /// <param name="func">The async func to run synchronously.</param>
    public static void RunSync(Func<Task> func)
    {
-      try
-      {
-         _taskFactory.StartNew(func).Unwrap().GetAwaiter().GetResult();
-      }
-      catch (Exception ex) when (ex is ThreadAbortException or TaskCanceledException)
-      {
-         // Ignore. Happens when application is shutdown while process is running.
-      }
+      _taskFactory.StartNew(func).Unwrap().GetAwaiter().GetResult();
    }
 }
