@@ -10,6 +10,5 @@ public static class ServiceProviderExtension
    {
       services.AddSingleton<IClock, SystemClock>();
       services.AddSingleton<ICalendar, SystemCalendar>();
-      services.AddSingleton<CalendarService>();
    }
 }

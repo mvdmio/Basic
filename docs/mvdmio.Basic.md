@@ -20,7 +20,7 @@ Foundational utility library shared across all services. Provides time abstracti
 
 ```
 mvdmio.Basic
-├── Time/           ← IClock, ICalendar abstractions + SystemClock, SystemCalendar, CalendarService
+├── Time/           ← IClock, ICalendar abstractions + SystemClock, SystemCalendar
 ├── Extensions/     ← C# 14 extension members for DateTime, string, Uri, DirectoryInfo, etc.
 ├── Utils/          ← UrlUtil (URL normalization/classification)
 ├── Exceptions/     ← ApplicationException base
@@ -38,7 +38,6 @@ services.AddBasic();
 Registers as singletons:
 - `IClock` → `SystemClock`
 - `ICalendar` → `SystemCalendar`
-- `CalendarService`
 
 ---
 
@@ -58,12 +57,6 @@ Abstracts the system clock. Inject instead of `DateTime.Now` directly.
 
 ### `ICalendar`
 
-| Member | Description |
-|--------|-------------|
-| `Calendar` | Returns `System.Globalization.Calendar` from current culture |
-
-### `CalendarService`
-
 High-level calendar operations. Inject this for week/ISO week number calculations.
 
 | Method | Description |
@@ -72,7 +65,10 @@ High-level calendar operations. Inject this for week/ISO week number calculation
 | `StartOfWeek(DayOfWeek)` | Start of current week with custom first day |
 | `StartOfWeek(DateOnly)` | Start of the week containing a given date |
 | `StartOfWeek(DateOnly, DayOfWeek)` | Same, with custom first day |
-| `EndOfWeek()` / `EndOfWeek(...)` | Same overload set for end of week |
+| `EndOfWeek()` | End of current week (Sunday by default) |
+| `EndOfWeek(DayOfWeek)` | End of current week with custom first day |
+| `EndOfWeek(DateOnly)` | End of the week containing a given date |
+| `EndOfWeek(DateOnly, DayOfWeek)` | Same, with custom first day |
 | `IsoWeekNumber()` | ISO 8601 week number for today |
 | `IsoWeekNumber(DateOnly)` | ISO 8601 week number for a given date |
 | `IsoWeekNumber(DateOnly, Calendar)` | Same, with explicit calendar |
@@ -216,7 +212,7 @@ Static helper for URL classification and normalization.
 |------|-------------|
 | `src/Libraries/mvdmio.Basic/ServiceProviderExtension.cs` | `AddBasic()` registration |
 | `src/Libraries/mvdmio.Basic/AsyncHelper.cs` | Sync-over-async helper |
-| `src/Libraries/mvdmio.Basic/Time/` | `IClock`, `ICalendar`, `SystemClock`, `SystemCalendar`, `CalendarService` |
+| `src/Libraries/mvdmio.Basic/Time/` | `IClock`, `ICalendar`, `SystemClock`, `SystemCalendar` |
 | `src/Libraries/mvdmio.Basic/Extensions/` | All extension methods |
 | `src/Libraries/mvdmio.Basic/Utils/UrlUtil.cs` | URL normalization/classification |
 | `src/Libraries/mvdmio.Basic/Exceptions/ApplicationException.cs` | Base exception |
