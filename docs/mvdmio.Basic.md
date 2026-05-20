@@ -210,9 +210,9 @@ Static helper for URL classification and normalization.
 
 | File | Description |
 |------|-------------|
-| `src/Libraries/mvdmio.Basic/ServiceProviderExtension.cs` | `AddBasic()` registration |
-| `src/Libraries/mvdmio.Basic/AsyncHelper.cs` | Sync-over-async helper |
-| `src/Libraries/mvdmio.Basic/Time/` | `IClock`, `ICalendar`, `SystemClock`, `SystemCalendar` |
-| `src/Libraries/mvdmio.Basic/Extensions/` | All extension methods |
-| `src/Libraries/mvdmio.Basic/Utils/UrlUtil.cs` | URL normalization/classification |
-| `src/Libraries/mvdmio.Basic/Exceptions/ApplicationException.cs` | Base exception |
+| `Libraries/src/mvdmio.Basic/ServiceProviderExtension.cs` | `AddBasic()` registration |
+| `Libraries/src/mvdmio.Basic/AsyncHelper.cs` | Sync-over-async helper |
+| `Libraries/src/mvdmio.Basic/Time/` | `IClock`, `ICalendar`, `SystemClock`, `SystemCalendar` |
+| `Libraries/src/mvdmio.Basic/Extensions/` | All extension methods |
+| `Libraries/src/mvdmio.Basic/Utils/UrlUtil.cs` | URL normalization/classification |
+| `Libraries/src/mvdmio.Basic/Exceptions/ApplicationException.cs` | Base exception |

@@ -22,7 +22,7 @@
    </ItemGroup>
 
    <ItemGroup>
-     <ProjectReference Include="..\..\..\src\Libraries\mvdmio.Basic\mvdmio.Basic.csproj" />
+     <ProjectReference Include="..\..\src\mvdmio.Basic\mvdmio.Basic.csproj" />
      <ProjectReference Include="..\mvdmio.UnitTest.Common.xUnit\mvdmio.UnitTest.Common.xUnit.csproj" />
    </ItemGroup>
 
