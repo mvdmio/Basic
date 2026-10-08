@@ -9,7 +9,6 @@ Foundational utility library shared across all services. Provides time abstracti
 - [Time Abstractions](#time-abstractions)
 - [Extensions](#extensions)
 - [Utilities](#utilities)
-- [Exceptions](#exceptions)
 - [Key File Locations](#key-file-locations)
 
 ---
@@ -23,7 +22,6 @@ mvdmio.Basic
 ├── Time/           ← IClock, ICalendar abstractions + SystemClock, SystemCalendar
 ├── Extensions/     ← C# 14 extension members for DateTime, string, Uri, DirectoryInfo, etc.
 ├── Utils/          ← UrlUtil (URL normalization/classification)
-├── Exceptions/     ← ApplicationException base
 └── AsyncHelper     ← Run async code in sync contexts
 ```
 
@@ -120,7 +118,6 @@ Traditional static extensions on `IEnumerable<T>`:
 
 | Method | Description |
 |--------|-------------|
-| `DistinctBy<T, TKey>(Func<T, TKey>)` | Distinct by key selector |
 | `WithIndex<T>()` | Returns `(T item, int index)` tuples |
 | `ToJson<T>()` | Serializes to JSON string |
 
@@ -198,14 +195,6 @@ Static helper for URL classification and normalization.
 
 ---
 
-## Exceptions
-
-| Class | Description |
-|-------|-------------|
-| `ApplicationException` | Base exception class. 3 constructors: `(message)`, `(message, inner)`, default |
-
----
-
 ## Key File Locations
 
 | File | Description |
@@ -215,4 +204,3 @@ Static helper for URL classification and normalization.
 | `Libraries/src/mvdmio.Basic/Time/` | `IClock`, `ICalendar`, `SystemClock`, `SystemCalendar` |
 | `Libraries/src/mvdmio.Basic/Extensions/` | All extension methods |
 | `Libraries/src/mvdmio.Basic/Utils/UrlUtil.cs` | URL normalization/classification |
-| `Libraries/src/mvdmio.Basic/Exceptions/ApplicationException.cs` | Base exception |

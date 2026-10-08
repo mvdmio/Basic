@@ -10,18 +10,6 @@ namespace mvdmio.Basic.Extensions;
 public static class EnumerableExtensions
 {
    /// <summary>
-   ///    Filters the enumerable, leaving only the first element found for each unique instance of the given key selector.
-   /// </summary>
-   /// <returns>
-   ///    Filters the enumerable, leaving only the first element found for each unique instance of the given key
-   ///    selector.
-   /// </returns>
-   public static IEnumerable<T> DistinctBy<T, TKey>(this IEnumerable<T> enumerable, Func<T, TKey> keySelector)
-   {
-      return enumerable.GroupBy(keySelector).Select(x => x.First());
-   }
-
-   /// <summary>
    ///    Creates a new enumerable that contains the elements of the original enumerable and adds the index for each element.
    /// </summary>
    /// <example>
