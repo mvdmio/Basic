@@ -1,7 +1,14 @@
 ﻿namespace mvdmio.Basic.Extensions;
 
+/// <summary>
+///    Extension methods for <see cref="DirectoryInfo" />.
+/// </summary>
 public static class DirectoryInfoExtensions
 {
+   /// <summary>
+   ///    Creates the directory and any missing parent directories.
+   /// </summary>
+   /// <param name="directory">The directory to create.</param>
    public static void RecursiveCreate(this DirectoryInfo directory)
    {
       if (directory.Parent?.Exists is false)
@@ -11,6 +18,10 @@ public static class DirectoryInfoExtensions
          directory.Create();
    }
 
+   /// <summary>
+   ///    Deletes the directory and everything in it, including read-only files and directories. Does nothing when the directory does not exist.
+   /// </summary>
+   /// <param name="directory">The directory to delete.</param>
    public static void ForceDelete(this DirectoryInfo directory)
    {
       if (!directory.Exists)
@@ -38,6 +49,11 @@ public static class DirectoryInfoExtensions
       directory.Delete(true);
    }
    
+   /// <summary>
+   ///    Combines the directory's full path with <paramref name="paths" />, as <see cref="Path.Combine(string[])" /> does.
+   /// </summary>
+   /// <param name="directory">The base directory.</param>
+   /// <param name="paths">The path parts to append.</param>
    public static DirectoryInfo Combine(this DirectoryInfo directory, params string[] paths)
    {
       var combiner = new List<string>();
@@ -48,6 +64,11 @@ public static class DirectoryInfoExtensions
       return new DirectoryInfo(combined);
    }
 
+   /// <summary>
+   ///    Combines the directory's full path with the full paths of <paramref name="paths" />, as <see cref="Path.Combine(string[])" /> does. A rooted part replaces everything before it.
+   /// </summary>
+   /// <param name="directory">The base directory.</param>
+   /// <param name="paths">The directories whose full paths to append.</param>
    public static DirectoryInfo Combine(this DirectoryInfo directory, params DirectoryInfo[] paths)
    {
       var combiner = new List<string>();

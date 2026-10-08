@@ -1,5 +1,8 @@
 namespace mvdmio.Basic.Extensions;
 
+/// <summary>
+///    Extension members for <see cref="Uri" />.
+/// </summary>
 public static class UriExtensions
 {
    extension(Uri uri)

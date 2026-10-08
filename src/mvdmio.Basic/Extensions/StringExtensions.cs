@@ -1,7 +1,14 @@
 ﻿namespace mvdmio.Basic.Extensions;
 
+/// <summary>
+///    Extension methods for <see cref="string" />.
+/// </summary>
 public static class StringExtensions
 {
+   /// <summary>
+   ///    Returns the string with its first character in upper case, using the current culture. Returns <c>null</c> for <c>null</c>.
+   /// </summary>
+   /// <param name="str">The string to capitalize.</param>
    public static string? Capitalize(this string? str)
    {
       if (str is null)

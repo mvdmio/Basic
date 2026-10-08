@@ -5,6 +5,8 @@
       <ImplicitUsings>enable</ImplicitUsings>
       <LangVersion>latest</LangVersion>
       <Nullable>enable</Nullable>
+      <GenerateDocumentationFile>true</GenerateDocumentationFile>
+      <WarningsAsErrors>$(WarningsAsErrors);CS1591</WarningsAsErrors>
    </PropertyGroup>
 
    <ItemGroup>
