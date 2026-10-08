@@ -5,6 +5,7 @@ Foundational utility library shared across all services. Provides time abstracti
 ## Table of Contents
 
 - [Architecture Overview](#architecture-overview)
+- [Package](#package)
 - [Registration](#registration)
 - [Time Abstractions](#time-abstractions)
 - [Extensions](#extensions)
@@ -15,7 +16,7 @@ Foundational utility library shared across all services. Provides time abstracti
 
 ## Architecture Overview
 
-`mvdmio.Basic` is a dependency-free utility library (no external NuGet packages). It is a prerequisite for `mvdmio.ASP`, `mvdmio.Email`, and `mvdmio.ASP.Razor`.
+`mvdmio.Basic` has one package dependency: `Microsoft.Extensions.DependencyInjection.Abstractions`, for `AddBasic()`. `JetBrains.Annotations` is used at compile time only. Suite projects that reference the library: `mvdmio.ASP`, `mvdmio.ASP.Razor`, `mvdmio.HealthCheck.SmokeTestCrawler`, and `mvdmio.UnitTest.Common.xUnit`.
 
 ```
 mvdmio.Basic
@@ -24,6 +25,18 @@ mvdmio.Basic
 ├── Utils/          ← UrlUtil (URL normalization/classification)
 └── AsyncHelper     ← Run async code in sync contexts
 ```
+
+---
+
+## Package
+
+Published to nuget.org as `mvdmio.Basic`, version 0.1.0, for `net8.0`, `net9.0`, and `net10.0`.
+
+- **Release**: raise `Version` in `mvdmio.Basic.csproj` and push to `master`.
+- **Workflow**: `publish basic nuget` (`.github/workflows/publish.basic.yml`) runs on a `master` push that changes `Libraries/src/mvdmio.Basic/**`. It runs `mvdmio.Basic.Tests.Unit`, packs, and pushes.
+- **No version change**: the push skips a version that already exists on nuget.org, so the run stays green.
+- **Suite consumers** use project references, not the package.
+- **Doc comments**: a public member without one fails the build (CS1591 is an error in this project).
 
 ---
 

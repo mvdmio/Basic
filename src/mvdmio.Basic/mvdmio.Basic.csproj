@@ -5,14 +5,31 @@
       <ImplicitUsings>enable</ImplicitUsings>
       <LangVersion>latest</LangVersion>
       <Nullable>enable</Nullable>
+      <DebugType>embedded</DebugType>
       <GenerateDocumentationFile>true</GenerateDocumentationFile>
       <WarningsAsErrors>$(WarningsAsErrors);CS1591</WarningsAsErrors>
+      <!-- The suite repository is private; a source link would not open for a package user. -->
+      <EnableSourceLink>false</EnableSourceLink>
+   </PropertyGroup>
+
+   <PropertyGroup>
+      <Version>0.1.0</Version>
+      <Title>mvdmio.Basic</Title>
+      <Description>Small .NET utilities: injectable clock and calendar abstractions, time zone helpers, extension members for dates, strings, collections, hashing, URIs and the file system, and helpers for URLs and running async code synchronously.</Description>
+      <Company>mvdmio</Company>
+      <Authors>Michiel van der Meer</Authors>
+      <PackageReadmeFile>Readme.md</PackageReadmeFile>
+      <PackageLicenseFile>License.txt</PackageLicenseFile>
    </PropertyGroup>
 
    <ItemGroup>
-      <PackageReference Include="JetBrains.Annotations" />
+      <None Include="License.txt" PackagePath="" Pack="true" />
+      <None Include="Readme.md" PackagePath="" Pack="true" />
+   </ItemGroup>
+
+   <ItemGroup>
+      <PackageReference Include="JetBrains.Annotations" PrivateAssets="all" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
    </ItemGroup>
 
 </Project>
-
