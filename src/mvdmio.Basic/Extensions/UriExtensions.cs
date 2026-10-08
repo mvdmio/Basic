@@ -27,7 +27,7 @@ public static class UriExtensions
             if (hostParts.Length < 2)
                return host;
             
-            // Second-level domains of up to three letters under a two-letter top-level domain (e.g., co.uk, com.au, org.uk)
+            // e.g., co.uk, com.au, org.uk
             if (hostParts.Length >= 3 && hostParts[^2].Length <= 3 && hostParts[^1].Length == 2)
                return string.Join('.', hostParts.TakeLast(3));
             

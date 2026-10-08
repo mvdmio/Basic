@@ -8,7 +8,7 @@
       <DebugType>embedded</DebugType>
       <GenerateDocumentationFile>true</GenerateDocumentationFile>
       <WarningsAsErrors>$(WarningsAsErrors);CS1591</WarningsAsErrors>
-      <!-- The suite repository is private: the package carries no source link and no repository commit. -->
+      <!-- The suite repository is private. -->
       <EnableSourceLink>false</EnableSourceLink>
       <EnableSourceControlManagerQueries>false</EnableSourceControlManagerQueries>
    </PropertyGroup>

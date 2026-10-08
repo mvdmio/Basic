@@ -30,7 +30,7 @@ mvdmio.Basic
 
 ## Package
 
-Published to nuget.org as `mvdmio.Basic`, version 0.1.0, for `net8.0`, `net9.0`, and `net10.0`.
+Published to nuget.org as `mvdmio.Basic`, version 0.1.0, for `net8.0`, `net9.0`, and `net10.0` ([Issue #3](https://github.com/michielvandermeer/mvdmio-suite/issues/3)).
 
 - **Release**: raise `Version` in `mvdmio.Basic.csproj`, update the version above, and push to `master`.
 - **Workflow**: `publish basic nuget` (`.github/workflows/publish.basic.yml`) runs on a `master` push that changes `Libraries/src/mvdmio.Basic/**`. It runs `mvdmio.Basic.Tests.Unit`, packs, and pushes.
