@@ -32,7 +32,7 @@ mvdmio.Basic
 
 Published to nuget.org as `mvdmio.Basic`, version 0.1.0, for `net8.0`, `net9.0`, and `net10.0`.
 
-- **Release**: raise `Version` in `mvdmio.Basic.csproj` and push to `master`.
+- **Release**: raise `Version` in `mvdmio.Basic.csproj`, update the version above, and push to `master`.
 - **Workflow**: `publish basic nuget` (`.github/workflows/publish.basic.yml`) runs on a `master` push that changes `Libraries/src/mvdmio.Basic/**`. It runs `mvdmio.Basic.Tests.Unit`, packs, and pushes.
 - **No version change**: the push skips a version that already exists on nuget.org, so the run stays green.
 - **Suite consumers** use project references, not the package.
