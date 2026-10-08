@@ -3,7 +3,7 @@ using System.Globalization;
 namespace mvdmio.Basic.Extensions;
 
 /// <summary>
-///    Extension members for <see cref="DateTime" />. Weeks run Monday to Sunday. Results keep the input's <see cref="DateTime.Kind" />.
+///    Extension members for <see cref="DateTime" />. Returned <see cref="DateTime" /> values keep the input's <see cref="DateTime.Kind" />.
 /// </summary>
 public static class DateTimeExtensions
 {

@@ -65,7 +65,7 @@ public static class DirectoryInfoExtensions
    }
 
    /// <summary>
-   ///    Combines the directory's full path with the full paths of <paramref name="paths" />, as <see cref="Path.Combine(string[])" /> does. A rooted part replaces everything before it.
+   ///    Returns the last directory in <paramref name="paths" />, or <paramref name="directory" /> when <paramref name="paths" /> is empty. Each part is a full path, and <see cref="Path.Combine(string[])" /> starts over at every rooted part, so the parts are not joined.
    /// </summary>
    /// <param name="directory">The base directory.</param>
    /// <param name="paths">The directories whose full paths to append.</param>

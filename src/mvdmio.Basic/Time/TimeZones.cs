@@ -22,7 +22,7 @@ public static class TimeZones
    /// </summary>
    /// <param name="zoneId">The time zone id, such as <c>Europe/Amsterdam</c>.</param>
    /// <param name="timeZone">The time zone found, or <see cref="TimeZoneInfo.Utc" /> when none is found.</param>
-   /// <returns><c>true</c> when a time zone with that id exists; <c>false</c> when the id is empty, unknown, or invalid.</returns>
+   /// <returns><c>true</c> when a time zone with that id exists; <c>false</c> when the id is null, empty, whitespace, unknown, or invalid.</returns>
    public static bool TryFind(string? zoneId, out TimeZoneInfo timeZone)
    {
       if (string.IsNullOrWhiteSpace(zoneId))
