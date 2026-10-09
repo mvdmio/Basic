@@ -16,7 +16,7 @@ Foundational utility library shared across all services. Provides time abstracti
 
 ## Architecture Overview
 
-`mvdmio.Basic` has one package dependency: `Microsoft.Extensions.DependencyInjection.Abstractions`, for `AddBasic()`. `JetBrains.Annotations` is used at compile time only. Suite projects that reference the library: `mvdmio.ASP`, `mvdmio.ASP.Razor`, `mvdmio.HealthCheck.SmokeTestCrawler`, and `mvdmio.UnitTest.Common.xUnit`.
+`mvdmio.Basic` has one package dependency: `Microsoft.Extensions.DependencyInjection.Abstractions`, for `AddBasic()`. `JetBrains.Annotations` is used at compile time only.
 
 ```
 mvdmio.Basic
@@ -211,8 +211,8 @@ Static helper for URL classification and normalization.
 
 | File | Description |
 |------|-------------|
-| `Libraries/src/mvdmio.Basic/ServiceProviderExtension.cs` | `AddBasic()` registration |
-| `Libraries/src/mvdmio.Basic/AsyncHelper.cs` | Sync-over-async helper |
-| `Libraries/src/mvdmio.Basic/Time/` | `IClock`, `ICalendar`, `SystemClock`, `SystemCalendar` |
-| `Libraries/src/mvdmio.Basic/Extensions/` | All extension methods |
-| `Libraries/src/mvdmio.Basic/Utils/UrlUtil.cs` | URL normalization/classification |
+| `src/mvdmio.Basic/ServiceProviderExtension.cs` | `AddBasic()` registration |
+| `src/mvdmio.Basic/AsyncHelper.cs` | Sync-over-async helper |
+| `src/mvdmio.Basic/Time/` | `IClock`, `ICalendar`, `SystemClock`, `SystemCalendar` |
+| `src/mvdmio.Basic/Extensions/` | All extension methods |
+| `src/mvdmio.Basic/Utils/UrlUtil.cs` | URL normalization/classification |
