@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/mvdmio.Basic/mvdmio.Basic.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/mvdmio.Basic.Tests.Unit/mvdmio.Basic.Tests.Unit.csproj" />
+  </Folder>
+</Solution>
