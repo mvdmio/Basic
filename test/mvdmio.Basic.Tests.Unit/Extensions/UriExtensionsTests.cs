@@ -1,11 +1,10 @@
 using AwesomeAssertions;
 using mvdmio.Basic.Extensions;
-using mvdmio.UnitTest.Common.xUnit;
 using Xunit;
 
 namespace mvdmio.Basic.Tests.Unit.Extensions;
 
-public class UriExtensionsTests : XUnitTestBase
+public class UriExtensionsTests
 {
    public class RootDomainTests : UriExtensionsTests
    {
