@@ -30,7 +30,7 @@ mvdmio.Basic
 
 ## Package
 
-Published to nuget.org as `mvdmio.Basic`, version 0.2.0, for `net8.0`, `net9.0`, and `net10.0` ([Issue #3](https://github.com/michielvandermeer/mvdmio-suite/issues/3)).
+Published to nuget.org as `mvdmio.Basic` for `net8.0`, `net9.0`, and `net10.0`, first as version 0.1.0 ([Issue #3](https://github.com/michielvandermeer/mvdmio-suite/issues/3)). The current version is 0.2.0. It removed `Combine(DirectoryInfo[])`, which returned the last directory instead of joining the paths ([Issue #268](https://github.com/michielvandermeer/mvdmio-suite/issues/268)).
 
 - **Release**: raise `Version` in `mvdmio.Basic.csproj`, update the version above, and push to `master`.
 - **Workflow**: `publish basic nuget` (`.github/workflows/publish.basic.yml`) runs on a `master` push that changes `Libraries/src/mvdmio.Basic/**`. It runs `mvdmio.Basic.Tests.Unit`, packs, and pushes.
