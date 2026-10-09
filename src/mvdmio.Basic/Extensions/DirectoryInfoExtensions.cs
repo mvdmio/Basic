@@ -63,19 +63,4 @@ public static class DirectoryInfoExtensions
       var combined = Path.Combine(combiner.ToArray());
       return new DirectoryInfo(combined);
    }
-
-   /// <summary>
-   ///    Returns the last directory in <paramref name="paths" />, or <paramref name="directory" /> when <paramref name="paths" /> is empty. Each part is a full path, and <see cref="Path.Combine(string[])" /> starts over at every rooted part, so the parts are not joined.
-   /// </summary>
-   /// <param name="directory">The base directory.</param>
-   /// <param name="paths">The directories whose full paths to append.</param>
-   public static DirectoryInfo Combine(this DirectoryInfo directory, params DirectoryInfo[] paths)
-   {
-      var combiner = new List<string>();
-      combiner.Add(directory.FullName);
-      combiner.AddRange(paths.Select(x => x.FullName));
-
-      var combined = Path.Combine(combiner.ToArray());
-      return new DirectoryInfo(combined);
-   }
 }

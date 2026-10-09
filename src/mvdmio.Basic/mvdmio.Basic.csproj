@@ -14,7 +14,7 @@
    </PropertyGroup>
 
    <PropertyGroup>
-      <Version>0.1.0</Version>
+      <Version>0.2.0</Version>
       <Title>mvdmio.Basic</Title>
       <Description>Small .NET utilities: injectable clock and calendar abstractions, time zone helpers, extension members for dates, strings, collections, hashing, URIs and the file system, and helpers for URLs and running async code synchronously.</Description>
       <Company>mvdmio</Company>
