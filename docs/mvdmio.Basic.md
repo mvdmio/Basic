@@ -1,6 +1,6 @@
 # mvdmio.Basic
 
-Foundational utility library shared across all services. Provides time abstractions, common extensions, async helpers, and URL utilities.
+Small .NET utility library, published as the `mvdmio.Basic` NuGet package. Provides time abstractions, common extensions, async helpers, and URL utilities.
 
 ## Table of Contents
 

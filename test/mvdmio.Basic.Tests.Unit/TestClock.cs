@@ -3,9 +3,6 @@ using mvdmio.Basic.Time.Interfaces;
 
 namespace mvdmio.Basic.Tests.Unit;
 
-/// <summary>
-/// Settable <see cref="IClock"/>. Times are floored to the millisecond; <c>Delay</c> completes at once.
-/// </summary>
 public class TestClock : IClock
 {
    private DateTimeOffset _utcNow = DateTimeOffset.UtcNow.Floor();
