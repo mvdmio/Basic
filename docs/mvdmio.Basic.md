@@ -30,12 +30,18 @@ mvdmio.Basic
 
 ## Package
 
-Published to nuget.org as `mvdmio.Basic` for `net8.0`, `net9.0`, and `net10.0`, first as version 0.1.0 ([Issue #3](https://github.com/michielvandermeer/mvdmio-suite/issues/3)). The current version is 0.2.0. It removed `Combine(DirectoryInfo[])`, which returned the last directory instead of joining the paths ([Issue #268](https://github.com/michielvandermeer/mvdmio-suite/issues/268)).
+Published to nuget.org as `mvdmio.Basic` for `net8.0`, `net9.0`, and `net10.0`. Versions:
 
-- **Release**: raise `Version` in `mvdmio.Basic.csproj`, update the version above, and push to `master`.
-- **Workflow**: `publish basic nuget` (`.github/workflows/publish.basic.yml`) runs on a `master` push that changes `Libraries/src/mvdmio.Basic/**`. It runs `mvdmio.Basic.Tests.Unit`, packs, and pushes.
-- **No version change**: the push skips a version that already exists on nuget.org, so the run stays green.
-- **Suite consumers** use project references, not the package.
+- **0.1.0**: first release, from the suite ([michielvandermeer/mvdmio-suite#3](https://github.com/michielvandermeer/mvdmio-suite/issues/3)).
+- **0.2.0**: removed `Combine(DirectoryInfo[])`, which returned the last directory instead of joining the paths ([michielvandermeer/mvdmio-suite#268](https://github.com/michielvandermeer/mvdmio-suite/issues/268)).
+- **0.2.1**: first release from [mvdmio/Basic](https://github.com/mvdmio/Basic). The package links to the repository and carries Source Link ([michielvandermeer/mvdmio-suite#267](https://github.com/michielvandermeer/mvdmio-suite/issues/267)).
+
+Releasing:
+
+- **Release**: raise `Version` in `src/mvdmio.Basic/mvdmio.Basic.csproj`, add the version above, and push to `main`.
+- **Workflow**: `publish nuget` (`.github/workflows/publish-nuget.yml`) runs on a `main` push that changes `src/mvdmio.Basic/**`. It runs the unit tests, packs, pushes to nuget.org, and creates the GitHub release `v<version>`.
+- **No version change**: the push skips a version that already exists on nuget.org, and the release step skips a tag that already exists, so the run stays green.
+- **Suite**: the suite pins `mvdmio.Basic` in its central package versions. A new version reaches the suite when the suite raises its pin.
 - **Doc comments**: a public member without one fails the build (CS1591 is an error in this project).
 
 ---

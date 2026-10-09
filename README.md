@@ -30,6 +30,10 @@ This registers two singletons:
 - **`AsyncHelper`**: runs async code synchronously, for the places where a synchronous call cannot be avoided.
 - **`UrlUtil`**: tells whether a URL is local (starts with `/` or `./`) and normalizes a bare domain to an `https://` URL.
 
+## Source and issues
+
+The source lives at [github.com/mvdmio/Basic](https://github.com/mvdmio/Basic). Report bugs and requests in its [Issues](https://github.com/mvdmio/Basic/issues).
+
 ## Contact
 
 For questions or issues, please contact me at [michiel@mvdm.io](mailto:michiel@mvdm.io).

@@ -8,24 +8,30 @@
       <DebugType>embedded</DebugType>
       <GenerateDocumentationFile>true</GenerateDocumentationFile>
       <WarningsAsErrors>$(WarningsAsErrors);CS1591</WarningsAsErrors>
-      <!-- The suite repository is private. -->
-      <EnableSourceLink>false</EnableSourceLink>
-      <EnableSourceControlManagerQueries>false</EnableSourceControlManagerQueries>
    </PropertyGroup>
 
    <PropertyGroup>
-      <Version>0.2.0</Version>
+      <RepositoryUrl>https://github.com/mvdmio/Basic</RepositoryUrl>
+      <PublishRepositoryUrl>true</PublishRepositoryUrl>
+   </PropertyGroup>
+
+   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+      <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+   </PropertyGroup>
+
+   <PropertyGroup>
+      <Version>0.2.1</Version>
       <Title>mvdmio.Basic</Title>
       <Description>Small .NET utilities: injectable clock and calendar abstractions, time zone helpers, extension members for dates, strings, collections, hashing, URIs and the file system, and helpers for URLs and running async code synchronously.</Description>
       <Company>mvdmio</Company>
       <Authors>Michiel van der Meer</Authors>
-      <PackageReadmeFile>Readme.md</PackageReadmeFile>
+      <PackageReadmeFile>README.md</PackageReadmeFile>
       <PackageLicenseFile>License.txt</PackageLicenseFile>
    </PropertyGroup>
 
    <ItemGroup>
-      <None Include="License.txt" PackagePath="" Pack="true" />
-      <None Include="Readme.md" PackagePath="" Pack="true" />
+      <None Include="..\..\License.txt" PackagePath="" Pack="true" />
+      <None Include="..\..\README.md" PackagePath="" Pack="true" />
    </ItemGroup>
 
    <ItemGroup>
