@@ -10,6 +10,7 @@ on:
 
 permissions:
    contents: write
+   id-token: write # request the OIDC token that NuGet exchanges for a temporary API key
 
 jobs:
    Publish:
@@ -38,8 +39,14 @@ jobs:
       -  name: Pack
          run: dotnet pack src/mvdmio.Basic/mvdmio.Basic.csproj -c Release --no-build -o artifacts
 
+      -  name: NuGet login
+         id: login
+         uses: NuGet/login@v1
+         with:
+            user: mvdmio
+
       -  name: Push
-         run: dotnet nuget push "artifacts/mvdmio.Basic.*.nupkg" --source "https://api.nuget.org/v3/index.json" --api-key "${{ secrets.NUGET_API_KEY }}" --skip-duplicate
+         run: dotnet nuget push "artifacts/mvdmio.Basic.*.nupkg" --source "https://api.nuget.org/v3/index.json" --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" --skip-duplicate
 
       -  name: Create GitHub release
          env:
